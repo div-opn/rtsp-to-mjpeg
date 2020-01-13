@@ -1,4 +1,6 @@
 FROM ubuntu
-RUN apt update; apt install -y vlc
+RUN apt-get update; apt-get install --no-install-recommends -y vlc-bin vlc-plugin-base; apt-get clean; apt-get autoclean
+COPY rtsp-to-mjpeg.sh /
 USER daemon
-ENTRYPOINT [ "vlc" ]
+ENTRYPOINT [ "/rtsp-to-mjpeg.sh" ]
+EXPOSE 8080
