@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:18.04
 RUN apt-get update; apt-get install --no-install-recommends -y vlc-bin vlc-plugin-base; apt-get clean; apt-get autoclean
 RUN useradd -ms /bin/bash streamer
 WORKDIR /home/streamer
